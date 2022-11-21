@@ -9,10 +9,10 @@ export default function Header(){
             
             <div className="logo">
                 <Link to="/favourite">
-                    <i class="ri-heart-fill ri-2x red"></i>
+                    <i className="ri-heart-fill ri-2x red"></i>
                 </Link>
                 <Link to="/search">
-                    <i class="ri-search-line ri-2x"></i>
+                    <i className="ri-search-line ri-2x"></i>
                 </Link>    
             </div>
         </header>
