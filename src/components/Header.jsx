@@ -1,13 +1,14 @@
 import {Link} from 'react-router-dom';
+import styles from "../css/header.module.css"
 
 export default function Header(){
     return(
-        <header>
+        <header className={styles}>
             <Link to="/">
                 <h2>Anime<br /> Paradise</h2>
             </Link>  
             
-            <div className="logo">
+            <div>
                 <Link to="/favourite">
                     <i className="ri-heart-fill ri-2x red"></i>
                 </Link>

@@ -1,0 +1,19 @@
+header {
+    height: 20vh;
+    background-color: #18181B;
+    box-shadow: 0 2px white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    font-family: poppins, sans-serif
+}
+
+header h2 {
+    color: whitesmoke;
+}
+
+header div{
+    display: flex;
+    gap: 1rem;
+}
