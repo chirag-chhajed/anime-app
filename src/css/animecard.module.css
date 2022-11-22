@@ -1,9 +1,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  /* gap: 0.5rem; */
   width: 250px;
-  height: 425px;
+  height: 450px;
   word-wrap: break-word;
   padding: 1rem 1.5rem;
   background-color: #2A2A2F;
@@ -21,6 +20,7 @@
 }
 
 a h2 {
+  margin-top: 1rem;
   height: 63px;
   word-break: break-all;
   overflow: hidden;

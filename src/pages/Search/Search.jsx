@@ -19,9 +19,8 @@ export default function Search() {
                 onClick={() => setSearchData([])}
                 placeholder="Type your todo"
             />
-            <main style={{ display: "flex", flexWrap: "wrap", gap: "2rem", padding: "1rem", backgroundColor: "#9d9c97", justifyContent: "space-evenly" }}>
+            <main>
                 {map}
-                
             </main>
 
         </>

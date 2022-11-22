@@ -1,6 +1,18 @@
+body{
+  font-family: poppins,sans-serif;
+}
 .red{
   color: red;
 }
 .white{
   color: whitesmoke;
+}
+main{
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #9d9c97;
+  justify-content: space-evenly;
 }

@@ -1,5 +1,42 @@
-.animedetail img{
-    margin-top: 2rem;
+.animecard{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 2rem;
+    padding-bottom: 3rem;
+    gap: 1rem;
+    background-color: #9d9c97;
+}
+.animecard h2{
+    text-align: center;
+}
+.animecard img{
+    height: 320px;
+    width: 225px;
     margin-inline: auto;
-    transform: scale(1);
+    margin-block: 2rem;
+}
+.score{
+    display: flex;
+    justify-content: space-between;
+}
+.genre{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.genre > h4{
+    background-color: black;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+.animecard p{
+    text-indent: 3rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.animecard iframe{
+    width: 350px;
+    align-self: center;
+    border: 10px solid whitesmoke;
 }

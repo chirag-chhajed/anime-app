@@ -5,16 +5,27 @@ const Context = createContext()
 
 function ContextProvider({children}){
 
-    const [animeData,setAnimeData] = useState([])
+    const [animeData,setAnimeData] = useState(
+      ()=>JSON.parse(sessionStorage.getItem("animes")) || []
+    )
     const [page,setPage] = useState(1)
     const [value,setValue] = useState("")
     const [searchData,setSearchData] = useState([])
-    const [favouriteAnimes,setFavouriteAnimes] = useState([])
+    const [favouriteAnimes,setFavouriteAnimes] = useState(
+      ()=>JSON.parse(localStorage.getItem("favourites")) || []
+    )
+    useEffect(()=>{
+      localStorage.setItem("favourites",JSON.stringify(favouriteAnimes))
+    },[favouriteAnimes])
 
+    useEffect(()=>{
+      sessionStorage.setItem("animes",JSON.stringify(animeData))
+    },[animeData])
     useEffect(()=>{
       setTimeout(async()=>{
         const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${value}r&sfw`)
         setSearchData([...response.data.data])
+      
       },1000)
     },[value])
     
@@ -22,7 +33,6 @@ function ContextProvider({children}){
         setTimeout(async()=>{
             const response = await axios.get(`https://api.jikan.moe/v4/top/anime?page=${page}`)
             setAnimeData(e => [...e,...response.data.data])
-
         },1000)
     },[page])
 
@@ -45,8 +55,7 @@ function ContextProvider({children}){
       function removeFromFavourite(id){
         setFavouriteAnimes(prevAnimes => prevAnimes.filter(anime => anime.mal_id !== id) )
       }
-
-    return(
+return(
         <Context.Provider value={{
           animeData,
           setAnimeData,
@@ -56,7 +65,7 @@ function ContextProvider({children}){
           setSearchData,
           favouriteAnimes,
           addToFavourite,
-          removeFromFavourite
+          removeFromFavourite,
           }}>
             {children}
         </Context.Provider>
