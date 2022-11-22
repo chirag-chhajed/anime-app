@@ -1,6 +1,7 @@
 import { Context } from "../../context/Context"
 import React,{ useContext,useEffect,useState } from "react"
 import { useParams } from 'react-router-dom'
+import Loader from "../../components/Loader"
 import styles from "../../css/animedetail.module.css"
 import axios from "axios"
 
@@ -12,12 +13,13 @@ export default function AnimeDetail(){
     const {id} = useParams()
     console.log(id)
 
-   
+   const [loader,setLoader] = useState(true)
     
     useEffect(()=>{
       setTimeout(async()=>{
         const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}/full`)
         setDetails(response.data.data)
+        setLoader(false)
       })
     },[id])
 
@@ -38,6 +40,7 @@ export default function AnimeDetail(){
     
   return (
     <>
+    {loader && <Loader/>}
     {details && <div key={mal_id}>
       <h2>{title}</h2>
       {genres && genres.map(e => (
