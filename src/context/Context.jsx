@@ -9,6 +9,7 @@ function ContextProvider({children}){
     const [page,setPage] = useState(1)
     const [value,setValue] = useState("")
     const [searchData,setSearchData] = useState([])
+    const [favouriteAnimes,setFavouriteAnimes] = useState([])
 
     useEffect(()=>{
       setTimeout(async()=>{
@@ -38,10 +39,25 @@ function ContextProvider({children}){
           setPage(e => e+1)
         }
       }
-      // console.log(animeData)
+      function addToFavourite(anime){
+        setFavouriteAnimes(prevAnimes => [...prevAnimes,anime])
+      }
+      function removeFromFavourite(id){
+        setFavouriteAnimes(prevAnimes => prevAnimes.filter(anime => anime.mal_id !== id) )
+      }
 
     return(
-        <Context.Provider value={{animeData,setAnimeData,value,setValue,searchData,setSearchData}}>
+        <Context.Provider value={{
+          animeData,
+          setAnimeData,
+          value,
+          setValue,
+          searchData,
+          setSearchData,
+          favouriteAnimes,
+          addToFavourite,
+          removeFromFavourite
+          }}>
             {children}
         </Context.Provider>
     )
