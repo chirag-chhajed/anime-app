@@ -6,14 +6,20 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-inline: 1.5rem;
-    font-family: poppins, sans-serif
+    font-family: poppins, sans-serif;
+    
 }
 
 header h2 {
     color: whitesmoke;
+    text-decoration: none;
 }
 
 header div{
     display: flex;
     gap: 1rem;
+}
+header div i{
+    text-decoration: none;
+    color: whitesmoke;
 }
