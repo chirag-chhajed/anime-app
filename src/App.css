@@ -16,3 +16,22 @@ main{
   background-color: #9d9c97;
   justify-content: space-evenly;
 }
+form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #9d9c97;
+  padding-block: 1rem;
+}
+form input{
+  width: 250px;
+  border: none;
+  outline: none;
+  height: 45px;
+  border-radius: 20px;
+  text-indent: 0.5rem;
+}
+Link{
+  text-decoration: none;
+  color: whitesmoke;
+}

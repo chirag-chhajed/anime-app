@@ -31,8 +31,6 @@ a h2 {
   display: flex;
   justify-content: space-between;
 }
-.card i{
-  position: absolute;
-  right: 0;
-  transform: translateX(-30px);
+.card div i{
+  transform: translateY(-12px);
 }

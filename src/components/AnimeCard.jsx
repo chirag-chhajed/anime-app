@@ -26,9 +26,9 @@ export default function AnimeCard(props){
                     </Link>
                     <div className={styles.logo}>
                         <h3>Rating: {score}</h3>
-                        <h3>{year}</h3>
+                        {favouriteIcon()}
                     </div>
-                    {favouriteIcon()}
+                    
                 </div>
             
             

@@ -7,9 +7,7 @@ import axios from "axios"
 
 
 export default function AnimeDetail(){
-    const {animeData} = useContext(Context)
     const [details,setDetails] = useState([])
-    // console.log()
     const {id} = useParams()
     console.log(id)
 
