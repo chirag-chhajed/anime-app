@@ -1,5 +1,10 @@
 body{
   font-family: poppins,sans-serif;
+  background-color: lightgray;
+}
+#root{
+  max-width: 1536px;
+  margin-inline: auto;
 }
 .red{
   color: red;
