@@ -1,4 +1,4 @@
-.animecard{
+.animecard {
     width: 100%;
     min-height: 80vh;
     display: flex;
@@ -8,32 +8,38 @@
     gap: 1rem;
     background-color: #9d9c97;
 }
-.animecard h2{
+
+.animecard h2 {
     text-align: center;
     font-size: 2rem;
 }
-.animecard img{
+
+.animecard img {
     height: 320px;
     width: 225px;
     margin-inline: auto;
     margin-block: 2rem;
 }
-.score{
+
+.score {
     display: flex;
     justify-content: space-between;
 }
-.genre{
+
+.genre {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
-.genre > h4{
+
+.genre>h4 {
     background-color: #18181b;
     color: whitesmoke;
     padding: 0.5rem 1rem;
     border-radius: 0.75rem;
 }
-.animecard p{
+
+.animecard p {
     color: #18181b;
     text-indent: 3rem;
     font-weight: 500;
@@ -42,14 +48,15 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.animecard iframe{
+.animecard iframe {
     display: none;
     width: 350px;
     align-self: center;
     border: 10px solid whitesmoke;
 }
+
 @media screen and (min-width:600px) {
-    .animecard iframe{
+    .animecard iframe {
         display: block;
     }
 }

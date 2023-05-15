@@ -1,18 +1,22 @@
-body{
-  font-family: poppins,sans-serif;
+body {
+  font-family: poppins, sans-serif;
   background-color: lightgray;
 }
-#root{
+
+#root {
   max-width: 1536px;
   margin-inline: auto;
 }
-.red{
+
+.red {
   color: red;
 }
-.white{
+
+.white {
   color: whitesmoke;
 }
-main{
+
+main {
   min-height: 80vh;
   display: flex;
   flex-wrap: wrap;
@@ -21,14 +25,16 @@ main{
   background-color: #9d9c97;
   justify-content: space-evenly;
 }
-form{
+
+form {
   width: 100%;
   display: flex;
   justify-content: center;
   background-color: #9d9c97;
   padding-block: 1rem;
 }
-form input{
+
+form input {
   width: 250px;
   border: none;
   outline: none;
@@ -36,7 +42,8 @@ form input{
   border-radius: 20px;
   text-indent: 0.5rem;
 }
-Link{
+
+Link {
   text-decoration: none;
   color: whitesmoke;
 }

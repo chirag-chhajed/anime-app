@@ -1,6 +1,5 @@
 import { Context } from "../../context/Context";
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import AnimeCard from "../../components/AnimeCard";
 // import { useParams } from "react-router-dom"
 

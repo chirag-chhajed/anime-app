@@ -7,7 +7,7 @@ header {
     align-items: center;
     padding-inline: 1.5rem;
     font-family: poppins, sans-serif;
-    
+
 }
 
 header h2 {
@@ -15,17 +15,18 @@ header h2 {
     text-decoration: none;
 }
 
-header div{
+header div {
     display: flex;
     gap: 1rem;
 }
-header div i{
+
+header div i {
     text-decoration: none;
     color: whitesmoke;
 }
 
 @media screen and (max-width:600px) {
-    header{
+    header {
         height: 15vh;
     }
 }
