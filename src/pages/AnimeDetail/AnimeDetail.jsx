@@ -7,7 +7,7 @@ import axios from "axios";
 export default function AnimeDetail() {
   const [details, setDetails] = useState([]);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const [loader, setLoader] = useState(true);
 
@@ -21,7 +21,7 @@ export default function AnimeDetail() {
     });
   }, [id]);
 
-  console.log(details);
+  // console.log(details);
 
   const {
     images,

@@ -9,8 +9,7 @@ function ContextProvider({children}){
       ()=>JSON.parse(sessionStorage.getItem("animes")) || []
     )
     const [page,setPage] = useState(1)
-    const [value,setValue] = useState("")
-    const [searchData,setSearchData] = useState([])
+    
     const [favouriteAnimes,setFavouriteAnimes] = useState(
       ()=>JSON.parse(localStorage.getItem("favourites")) || []
     )
@@ -21,13 +20,7 @@ function ContextProvider({children}){
     useEffect(()=>{
       sessionStorage.setItem("animes",JSON.stringify(animeData))
     },[animeData])
-    useEffect(()=>{
-      setTimeout(async()=>{
-        const response = await axios.get(`https://api.jikan.moe/v4/anime?q=${value}r&sfw`)
-        setSearchData([...response.data.data])
-      
-      },1000)
-    },[value])
+    
     
     useEffect(()=>{
         setTimeout(async()=>{
@@ -59,10 +52,7 @@ return(
         <Context.Provider value={{
           animeData,
           setAnimeData,
-          value,
-          setValue,
-          searchData,
-          setSearchData,
+          
           favouriteAnimes,
           addToFavourite,
           removeFromFavourite,

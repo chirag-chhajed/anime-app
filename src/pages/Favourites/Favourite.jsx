@@ -4,7 +4,7 @@ import AnimeCard from "../../components/AnimeCard"
 
 export default function Favourite(){
     const {favouriteAnimes} = useContext(Context)
-    console.log(favouriteAnimes)
+    // console.log(favouriteAnimes)
     const map = favouriteAnimes.map(e => (
         <AnimeCard key={e.mal_id} {...e} />
     ))
