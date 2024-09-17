@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { Context } from "../../context/Context";
 import AnimeCard from "../../components/AnimeCard";
+import { useSelector } from "react-redux";
 
 export default function Favourite() {
-  const { favouriteAnimes } = useContext(Context);
-  // console.log(favouriteAnimes)
-  const map = favouriteAnimes.map((e) => <AnimeCard key={e.mal_id} {...e} />);
+  const state = useSelector((state) => state.favourites.value);
+
+  const map = state.map((e) => <AnimeCard key={e.mal_id} {...e} />);
   const display =
-    favouriteAnimes.length > 0 ? map : <h3>There are no items in Favourite</h3>;
+    state.length > 0 ? map : <h3>There are no items in Favourite</h3>;
 
   return <main>{display}</main>;
 }

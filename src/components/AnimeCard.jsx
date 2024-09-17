@@ -1,27 +1,31 @@
 import { Link } from "react-router-dom";
 import styles from "../css/animecard.module.css";
-import { useContext } from "react";
-import { Context } from "../context/Context";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  addAnimeToFavourites,
+  removeAnimeFromFavourites,
+} from "../store/api/hello";
 
 export default function AnimeCard(props) {
   const { mal_id, title, images, score, year } = props;
-  const { favouriteAnimes, addToFavourite, removeFromFavourite } =
-    useContext(Context);
+
+  const state = useSelector((state) => state.favourites.value);
+
+  const dispatch = useDispatch();
   const favouriteIcon = () => {
-    const alreadyInFavourite = favouriteAnimes.some(
-      (anime) => anime.mal_id == mal_id
-    );
+    const alreadyInFavourite = state.some((anime) => anime.mal_id == mal_id);
     if (alreadyInFavourite) {
       return (
         <i
-          onClick={() => removeFromFavourite(mal_id)}
+          onClick={() => dispatch(removeAnimeFromFavourites(mal_id))}
           className="ri-heart-fill ri-2x red"
         ></i>
       );
     } else {
       return (
         <i
-          onClick={() => addToFavourite(props)}
+          onClick={() => dispatch(addAnimeToFavourites(props))}
           className="ri-heart-line ri-2x"
         ></i>
       );

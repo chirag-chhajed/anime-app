@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import { ContextProvider } from "./context/Context";
+import { ReduxProvider } from "./store/StoreProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <ContextProvider>
+    <ReduxProvider>
       <App />
-    </ContextProvider>
+    </ReduxProvider>
   </BrowserRouter>
 );
