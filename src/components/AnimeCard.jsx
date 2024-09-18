@@ -6,6 +6,7 @@ import {
   addAnimeToFavourites,
   removeAnimeFromFavourites,
 } from "../store/api/hello";
+import { RiHeartFill, RiHeartLine } from "@remixicon/react";
 
 export default function AnimeCard(props) {
   const { mal_id, title, images, score, year } = props;
@@ -14,20 +15,25 @@ export default function AnimeCard(props) {
 
   const dispatch = useDispatch();
   const favouriteIcon = () => {
-    const alreadyInFavourite = state.some((anime) => anime.mal_id == mal_id);
+    const alreadyInFavourite = state.some((anime) => anime.mal_id === mal_id);
     if (alreadyInFavourite) {
       return (
-        <i
+        <RiHeartFill
           onClick={() => dispatch(removeAnimeFromFavourites(mal_id))}
-          className="ri-heart-fill ri-2x red"
-        ></i>
+          size={24}
+          className="red"
+          color="red"
+          role="button"
+        />
       );
     } else {
       return (
-        <i
+        <RiHeartLine
           onClick={() => dispatch(addAnimeToFavourites(props))}
-          className="ri-heart-line ri-2x"
-        ></i>
+          size={24}
+          role="button"
+          color="white"
+        />
       );
     }
   };

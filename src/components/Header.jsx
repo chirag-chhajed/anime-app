@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "../css/header.module.css";
+import { RiHeartFill, RiSearchLine } from "@remixicon/react";
 
 export default function Header() {
   return (
@@ -13,10 +14,15 @@ export default function Header() {
 
       <div>
         <Link to="/favourite">
-          <i className="ri-heart-fill ri-2x red"></i>
+          <RiHeartFill
+            size={32} // set custom `width` and `height`
+            color="red" // set `fill` color
+            className="red" // add custom class name
+            aria-description="Favourite"
+          />
         </Link>
         <Link to="/search">
-          <i className="ri-search-line ri-2x"></i>
+          <RiSearchLine size={32} color="white" aria-description="Search" />
         </Link>
       </div>
     </header>

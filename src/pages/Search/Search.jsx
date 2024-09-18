@@ -1,35 +1,35 @@
-import { useState, useEffect } from "react";
+import { useDebounce } from "@uidotdev/usehooks";
+import { useSearchAnimeQuery } from "../../store/api";
+import { useSearchParams } from "react-router-dom";
 import AnimeCard from "../../components/AnimeCard";
 
 export default function Search() {
-  const [value, setValue] = useState("");
-  const [searchData, setSearchData] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    const debounce = setTimeout(() => {
-      const fetchData = async () => {
-        const response = await fetch(
-          `https://api.jikan.moe/v4/anime?q=${value}&r&sfw`
-        );
-        const data = await response.json();
-        setSearchData(data?.data);
-        // console.log(searchData);
-      };
-      fetchData();
-    }, 500); // set the delay time to 500ms
+  // Get the query parameter as a plain string
+  const queryParam = searchParams.get("query") || "";
 
-    return () => clearTimeout(debounce);
-  }, [value]);
+  // Debounce the queryParam to avoid frequent API calls
+  const debouncedValue = useDebounce(queryParam, 1000);
 
-  const map = searchData.map((e) => <AnimeCard {...e} key={e.mal_id} />);
+  // Ensure you're passing the debounced value as a plain string to the query
+  const { data: searchData } = useSearchAnimeQuery({ query: debouncedValue });
+
+  // Map over search results and display AnimeCard components
+  const map = searchData?.map((e) => <AnimeCard {...e} key={e.mal_id} />);
+
+  // Update searchParams when the input changes
+  const handleInputChange = (e) => {
+    setSearchParams({ query: e.target.value });
+  };
 
   return (
     <>
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={queryParam}
+          onChange={handleInputChange}
           placeholder="Search Anime"
         />
       </form>
